@@ -4,65 +4,65 @@
 
 @layer base {
   :root {
-    --background: 45 30% 98%;
-    --foreground: 36 5% 10%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
 
     --card: 0 0% 100%;
-    --card-foreground: 36 5% 10%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 36 5% 10%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 36 40% 45%;
-    --primary-foreground: 45 30% 98%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 15% 90%;
-    --secondary-foreground: 36 5% 10%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
 
-    --muted: 30 15% 90%;
-    --muted-foreground: 36 5% 40%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 45 70% 60%;
-    --accent-foreground: 36 5% 10%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 30% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 36 10% 80%;
-    --input: 36 10% 80%;
-    --ring: 36 40% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 70%;
 
-    --radius: 0.5rem;
+    --radius: 0.3rem;
   }
 
   .dark {
-    --background: 36 5% 10%;
-    --foreground: 45 30% 98%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 36 5% 12%;
-    --card-foreground: 45 30% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 36 5% 12%;
-    --popover-foreground: 45 30% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 45 70% 60%;
-    --primary-foreground: 36 5% 10%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 7%;
 
-    --secondary: 36 5% 20%;
-    --secondary-foreground: 45 30% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 36 5% 20%;
-    --muted-foreground: 36 5% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 36 40% 45%;
-    --accent-foreground: 45 30% 98%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 45 30% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 36 5% 30%;
-    --input: 36 5% 30%;
-    --ring: 45 70% 60%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 75%;
   }
 }
 
@@ -73,35 +73,83 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-  }
-
-  p, span, div {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Futura PT', 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
 }
 
 @layer components {
-  .hero-gradient {
-    background: linear-gradient(to right, rgba(212, 175, 55, 0.2), rgba(192, 192, 192, 0.1));
-  }
-  
-  .jewel-card {
-    @apply border border-jewelry-gold/20 bg-white/90 rounded-md shadow-sm hover:shadow-md transition-all duration-300;
-  }
-  
-  .gold-shimmer {
-    background: linear-gradient(90deg, 
-      rgba(212, 175, 55, 0.1),
-      rgba(212, 175, 55, 0.3),
-      rgba(212, 175, 55, 0.1)
+  .metal-gradient {
+    background: linear-gradient(-45deg, 
+      rgba(192, 192, 192, 0.6), 
+      rgba(255, 255, 255, 0.8), 
+      rgba(192, 192, 192, 0.4)
     );
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite linear;
+    background-size: 200% 200%;
+    animation: metal-shine 2s ease infinite;
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(-45deg, 
+      rgba(212, 175, 55, 0.6), 
+      rgba(255, 240, 200, 0.8), 
+      rgba(212, 175, 55, 0.4)
+    );
+    background-size: 200% 200%;
+    animation: metal-shine 2s ease infinite;
+  }
+  
+  .product-card {
+    @apply rounded border border-transparent bg-background transition-all duration-300;
+    background-image: linear-gradient(to right, transparent, transparent),
+                     linear-gradient(to right, rgba(192, 192, 192, 0), rgba(192, 192, 192, 0.3));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+  
+  .product-card:hover {
+    background-image: linear-gradient(to right, transparent, transparent),
+                     linear-gradient(to right, rgba(212, 175, 55, 0.2), rgba(192, 192, 192, 0.6));
+    @apply shadow-lg transform -translate-y-1;
+  }
+  
+  .navbar-link {
+    @apply relative px-3 py-2 text-foreground hover:text-alteris-warm-gold transition-colors duration-200 
+           after:content-[''] after:absolute after:w-0 after:h-[1px] after:bottom-0 after:left-0 
+           after:bg-alteris-warm-gold after:transition-all after:duration-300;
+  }
+  
+  .navbar-link:hover::after {
+    @apply w-full;
+  }
+  
+  .active-link::after {
+    @apply w-full;
+  }
+  
+  .shine-button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shine-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 70%;
+    height: 200%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(25deg);
+    transition: transform 0.5s ease;
+  }
+  
+  .shine-button:hover::after {
+    transform: rotate(25deg) translateX(300%);
   }
 }
